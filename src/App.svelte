@@ -1,4 +1,5 @@
 <script lang="ts">
+import { onMount } from 'svelte';
 import Welcome from '@/components/Welcome.svelte';
 import Sentence from '@/components/Sentence.svelte';
 import Gallery from '@/components/Gallery.svelte';
@@ -7,6 +8,15 @@ import Heart from '@/components/Heart.svelte';
 import Cheerup from '@/components/Cheerup.svelte';
 import Footer from '@/components/Footer.svelte';
 import FABs from '@/components/FABs.svelte';
+
+const setScreenSize = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+onMount(() => {
+  window.addEventListener('resize', setScreenSize);
+  setScreenSize();
+});
 </script>
 
 <main>
@@ -30,7 +40,7 @@ import FABs from '@/components/FABs.svelte';
 <style>
 main {
   position: relative;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 .seperator {
   background-color: #f8f9fa;

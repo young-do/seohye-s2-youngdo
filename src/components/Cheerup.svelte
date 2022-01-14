@@ -146,11 +146,10 @@ h2 {
   background: #f65c8a;
   color: #fff;
   font-weight: bold;
+  flex-shrink: 0;
 }
 .message-list {
   min-height: 300px;
-  max-height: 60vh;
-  overflow: auto;
   margin: 1rem 0;
 }
 .message-item-empty {
