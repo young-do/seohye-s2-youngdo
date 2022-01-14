@@ -6,9 +6,6 @@ import { onMount } from 'svelte';
 let audioEl: HTMLAudioElement;
 
 const onClickMusic = () => {
-  if (!audioEl) return;
-  if (audioEl.played) return;
-
   audioEl.play().catch(console.error);
 };
 const onClickUp = () => {
