@@ -7,13 +7,13 @@ import { copyToClipboard } from '@/utils';
 
 const hearts = {
   groom: [
-    { name: '모) 홍영주', account: '123' },
-    { name: '조영도', account: '국민 123' },
+    { name: '모) 홍영주', account: '기업은행 650-004691-02-010' },
+    { name: '조영도', account: '카카오뱅크 3333-01-9530012' },
   ],
   bride: [
-    { name: '부) 김헌진', account: '123' },
-    { name: '모) 이선화', account: '123' },
-    { name: '김서혜', account: '123' },
+    { name: '부) 김헌진', account: '국민은행 806201-04-025493' },
+    { name: '모) 이선화', account: '국민은행 806-24-0380-281' },
+    { name: '김서혜', account: '국민은행 546902-01-343552' },
   ],
 };
 
