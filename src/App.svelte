@@ -14,7 +14,9 @@ const setScreenSize = () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
 onMount(() => {
-  window.addEventListener('resize', setScreenSize);
+  if (!navigator.userAgent.includes('KAKAO')) {
+    window.addEventListener('resize', setScreenSize);
+  }
   setScreenSize();
 });
 </script>
