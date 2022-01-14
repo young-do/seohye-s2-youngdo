@@ -7,7 +7,7 @@ const 바로가기 = {
   kakao: 'http://kko.to/wYeEQP24j',
   naver: 'http://naver.me/FHYuAgm6',
 };
-const 약도 = 'http://srwedding.co.kr/location.jpg';
+const 약도 = 'https://kr.object.ncloudstorage.com/wedding/location.jpeg';
 </script>
 
 <section>
