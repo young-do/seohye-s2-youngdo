@@ -137,6 +137,7 @@ h2 {
 }
 .message-form-input {
   flex: 1;
+  width: 100%;
   padding: 0.5rem;
   margin-right: 0.5rem;
   border: 1px solid #c4c4c4;
