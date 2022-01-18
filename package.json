@@ -13,6 +13,7 @@
     "not IE 11"
   ],
   "dependencies": {
+    "bowser": "^2.11.0",
     "date-fns": "^2.28.0",
     "firebase": "^9.6.3",
     "node-sass": "^5.0.0",

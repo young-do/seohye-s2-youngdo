@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import Bowser from 'bowser';
 import Welcome from '@/components/Welcome.svelte';
 import Sentence from '@/components/Sentence.svelte';
 import Gallery from '@/components/Gallery.svelte';
@@ -14,7 +15,8 @@ const setScreenSize = () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 };
 onMount(() => {
-  if (!navigator.userAgent.includes('KAKAO')) {
+  const parser = Bowser.getParser(window.navigator.userAgent);
+  if (parser.getPlatformType() !== 'mobile') {
     window.addEventListener('resize', setScreenSize);
   }
   setScreenSize();
