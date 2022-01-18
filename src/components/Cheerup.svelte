@@ -4,8 +4,7 @@ import { getDatabase, ref, onValue, update, increment } from 'firebase/database'
 import { onMount } from 'svelte';
 import { format } from 'date-fns';
 import Button_Heart from './Button_Heart.svelte';
-// import { getAnalytics } from 'firebase/analytics';
-// getAnalytics(app);
+import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCeu0TvlQGfURIxXlNXyY9J6TSPxnPzDdg',
@@ -19,6 +18,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+// note: 위치 옮길 필요는 있지만, 일단 여기에
+getAnalytics(app);
+
 const db = getDatabase(app);
 const heartsRef = ref(db, 'hearts');
 const messagesRef = ref(db, 'messages');
