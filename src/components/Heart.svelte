@@ -128,7 +128,7 @@ onMount(() => {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
-  min-width: 320px;
+  min-width: 200px;
   max-width: 600px;
   padding: 1rem;
   background-color: #fff;

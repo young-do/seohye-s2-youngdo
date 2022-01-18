@@ -120,7 +120,7 @@ h2 {
   font-size: 1.75rem;
 }
 .message-container {
-  min-width: 320px;
+  min-width: 200px;
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1.5rem;

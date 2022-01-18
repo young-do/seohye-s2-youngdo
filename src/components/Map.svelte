@@ -46,7 +46,7 @@ section {
 }
 .map-image {
   width: 100%;
-  min-width: 320px;
+  min-width: 200px;
   max-width: 800px;
   margin: 0 auto;
 }
