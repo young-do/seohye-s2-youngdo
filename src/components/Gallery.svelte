@@ -8,8 +8,14 @@ import { onMount } from 'svelte';
 
 const imageUrls = new Array(12)
   .fill(null)
-  .map((_, i) => `https://kr.object.ncloudstorage.com/wedding/gallery-${i}-1280.jpg`);
-
+  .map((_, i) => `https://kr.object.ncloudstorage.com/wedding/w-gallery-${i}-960.webp`);
+const srcsets = imageUrls.map((_, i) => {
+  return [
+    `https://kr.object.ncloudstorage.com/wedding/w-gallery-${i}-320.webp 960w`,
+    `https://kr.object.ncloudstorage.com/wedding/w-gallery-${i}-640.webp 1920w`,
+    `https://kr.object.ncloudstorage.com/wedding/w-gallery-${i}-960.webp 2880w`,
+  ].join(',');
+});
 const imageRatios: Record<string, number> = {};
 
 let rootElement: HTMLDivElement;
@@ -60,8 +66,10 @@ onMount(() => {
   <div class="gallery">
     {#each imageUrls as url, index (index)}
       <img
+        loading="lazy"
         src={url}
-        alt=""
+        srcset={srcsets[index]}
+        alt="{index + 1}번째 사진 보기"
         width={imageWidth}
         height={imageWidth}
         on:click={openPhotoSwipe(index)}

@@ -23,7 +23,7 @@ const DDAY = differenceInCalendarDays(new Date(2022, 2, 27), new Date());
   width: 100%;
   height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url(https://kr.object.ncloudstorage.com/wedding/gallery-main-1280.jpg);
+    url(https://kr.object.ncloudstorage.com/wedding/w-gallery-main-960.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

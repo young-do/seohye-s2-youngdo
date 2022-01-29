@@ -1,25 +1,20 @@
 const fs = require('fs');
-const jimp = require('jimp');
+const path = require('path');
+const sharp = require('sharp');
 
 const main = async () => {
   const files = fs.readdirSync('./images');
   console.log(files);
 
-  for (let index = 0; index < files.length; index++) {
-    const file = files[index];
-    const widths = [1280, 200];
-    for (const width of widths) {
-      // Read the image.
-      const image = await jimp.read(`images/${file}`);
-
-      // Resize the image to width 150 and auto height.
-      await image.resize(width, jimp.AUTO);
-
-      // Save and overwrite the image
-      await image.writeAsync(`resized/gallery-${index}-${width}.jpg`);
-
-      console.log(`resized ${file} to fit within width=${width}`);
-    }
-  }
+  const widths = [320, 640, 960];
+  const tasks = files.flatMap((file, index) => {
+    const input = path.join(__dirname, `images/${file}`);
+    return widths.map(width => {
+      const output = path.join(__dirname, `resized/w-gallery-${index}-${width}.webp`);
+      return sharp(input).resize({ width }).webp({ lossless: true }).toFile(output);
+    });
+  });
+  await Promise.all(tasks);
+  console.log('Done!');
 };
 main();

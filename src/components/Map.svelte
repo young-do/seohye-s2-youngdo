@@ -7,7 +7,7 @@ const 바로가기 = {
   kakao: 'http://kko.to/wYeEQP24j',
   naver: 'http://naver.me/FHYuAgm6',
 };
-const 약도 = 'https://kr.object.ncloudstorage.com/wedding/location.jpeg';
+const 약도 = 'https://kr.object.ncloudstorage.com/wedding/location.webp';
 </script>
 
 <section>
@@ -19,7 +19,7 @@ const 약도 = 'https://kr.object.ncloudstorage.com/wedding/location.jpeg';
     <a href={바로가기.naver} target="_blank"><img class="map-icon" src={naverMapIcon} alt="naver-map" /></a>
   </div>
 
-  <img class="map-image" src={약도} alt="wedding-hall-map" />
+  <img loading="lazy" class="map-image" src={약도} alt="wedding-hall-map" />
 </section>
 
 <style>
