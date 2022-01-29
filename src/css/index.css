@@ -5,6 +5,7 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @media screen and (max-width: 768px) {
