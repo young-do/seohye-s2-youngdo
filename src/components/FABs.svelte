@@ -1,26 +1,47 @@
 <script lang="ts">
 import guitar from '@/assets/guitar.png';
 import upArrow from '@/assets/up-arrow.png';
-import { onMount } from 'svelte';
 
 let audioEl: HTMLAudioElement;
+let audioElLoading: 'yet' | 'loading' | 'loaded' = 'yet';
 
-const onClickMusic = () => {
-  audioEl.play().catch(console.error);
+const loadAudio = () => {
+  return new Promise<void>((resolve, reject) => {
+    audioEl = document.createElement('audio');
+    audioEl.src = 'https://kr.object.ncloudstorage.com/wedding/music.mp3';
+    audioEl.preload = 'auto';
+    audioEl.volume = 0.2;
+    audioEl.autoplay = true;
+    audioEl.oncanplay = () => resolve();
+    audioEl.onerror = err => reject(err);
+  });
+};
+
+const onToggleMusic = async () => {
+  if (audioElLoading === 'yet') {
+    audioElLoading = 'loading';
+    try {
+      await loadAudio();
+      audioElLoading = 'loaded';
+    } catch (error) {
+      console.error(error);
+      audioElLoading = 'yet';
+    }
+    return;
+  }
+  if (audioElLoading === 'loading') {
+    return console.warn('loading...');
+  }
+  if (audioElLoading === 'loaded') {
+    return audioEl.paused ? audioEl.play() : audioEl.pause();
+  }
 };
 const onClickUp = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-
-onMount(() => {
-  audioEl = document.createElement('audio');
-  audioEl.preload = 'auto';
-  audioEl.src = 'https://kr.object.ncloudstorage.com/wedding/music.mp3';
-  audioEl.volume = 0.2;
-});
 </script>
 
-<button class="music-button" on:click={onClickMusic}>
+<button class="music-button" on:click={onToggleMusic}>
   <img src={guitar} alt="music-icon" />
 </button>
 
