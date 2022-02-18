@@ -92,6 +92,7 @@ i {
   border-radius: 24px;
   line-height: 12px;
   z-index: -9;
+  opacity: 0;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   font-family: -apple-system, sans-serif;
   font-style: normal;
@@ -99,6 +100,7 @@ i {
 
 .count-motion {
   transform: translatey(-160%);
+  opacity: 1;
 }
 
 span {
